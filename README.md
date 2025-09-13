@@ -141,16 +141,11 @@ Requirements:
 - [PyTorch](https://pytorch.org/)  
 - NumPy, SciPy, Matplotlib  
 - Scapy (for parsing `.pcap`)  
-- NexCSI Python decoder  
+- nexcsi
 
 Install dependencies:
 ```bash
 pip install -r requirements.txt
-```
-
-If NexCSI is not available on PyPI:
-```bash
-pip install git+https://github.com/seemoo-lab/nexmon_csi.git
 ```
 
 ---
@@ -160,14 +155,24 @@ pip install git+https://github.com/seemoo-lab/nexmon_csi.git
 ### 1. Convert raw CSI (Nexmon → npy)
 On your PC, convert captured `.pcap` to `.npy` format:
 ```bash
-python nexmon_2npy.py     --input raw.pcap     --output CleanData/session.npy
+python3 nexmon_2npy.py
 ```
 - `--input`: Raw Nexmon CSI capture.  
 - `--output`: NumPy array with 234 subcarriers × frames.  
 
 ---
 
-### 2. Train the model
+### 2. Predict heart rate on new CSI
+```bash
+python predict_pulsefi.py     --input Example/Yournpy.npy     --model Model/best_model.pt
+```
+- Input: new CSI session `.npy`  
+- Output: Estimated heart rate (BPM sequence)  
+
+---
+
+
+### Train the model
 Train lightweight LSTM regression model on CSI and smartwatch HR JSON data:
 ```bash
 python train_script/train_pulsefi.py     --csi-dir CleanData     --watch-dir Data_DS1_smartwatch/Data     --output Model/pulsefi_model.pt     --window-sec 20     --hop-sec 1
@@ -180,22 +185,13 @@ Parameters:
 
 ---
 
-### 3. Evaluate the model
+### Evaluate the model
 ```bash
 python model_evaluate_script/eval_pulsefi.py     --csi-dir CleanData     --watch-dir Data_DS1_smartwatch/Data     --model Model/pulsefi_model.pt     --hidden-dim 128     --num-layers 1
 ```
 Outputs:
 - **MSE**, **RMSE**, **MAE**  
 - Plot: predicted vs ground truth HR curve  
-
----
-
-### 4. Predict heart rate on new CSI
-```bash
-python predict_pulsefi.py     --input CleanData/new_session.npy     --model Model/pulsefi_model.pt
-```
-- Input: new CSI session `.npy`  
-- Output: Estimated heart rate (BPM sequence)  
 
 ---
 
@@ -219,14 +215,6 @@ flowchart LR
 - Both software and hardware setups were replicated, confirming feasibility on commodity Wi-Fi devices.  
 
 ![Evaluation](Evaluate.png)
-
----
-
-## 🔮 Future Work
-
-- Integration with **clinical applications** (e.g., breast cancer recovery monitoring)  
-- HRV estimation and psychological well-being assessment  
-- Embedded deployment (ESP32 / Raspberry Pi)  
 
 ---
 
