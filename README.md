@@ -110,6 +110,8 @@ To reproduce Pulse-Fi end-to-end (including raw CSI collection), you will need:
   Install makecsiparams: from the nexmon_csi root directory switch to the nexutil folder: ```cd utils/makecsiparams```. Compile and install nexutil: ```make && make install```
   Install nexutil: from the nexmon root directory switch to the nexutil folder: ```cd utilities/nexutil/```. Compile and install nexutil: ```make && make install```
   Optional: remove wpa_supplicant for better control over the WiFi interface: ```apt-get remove wpasupplicant```if you remove the wpasupplicant your WIFI will not work that's why you will need a internet cable.
+
+![Evaluation](CollectionSetup.png)
 #### 3. Start CSI capture on Raspberry Pi
 Make sure you have correctly configure the Wi-Fi(channel 36 with 80 MHz bandwidth) and disabled MAC address randomization.
 ```bash
