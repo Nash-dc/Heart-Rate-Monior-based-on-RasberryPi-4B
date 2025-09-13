@@ -117,7 +117,9 @@ makecsiparams -c 36/80 -C 1 -N 1 -m 00:11:22:33:44:55,aa:bb:aa:bb:aa:bb
 ```
 00:11:22:33:44:55 is the router mac address, aa:bb:aa:bb:aa:bb is your WIFI client mac address(not your RasyberryPi).
 This will generate a base64 encoded parameter string that can be used to configure the extractor.
-It is necessary to kill the wpa_supplicant for better control```pkill wpa_supplicant```if you have removed it before,ignore this.
+
+It is necessary to kill the wpa_supplicant for better control```pkill wpa_supplicant```
+if you have removed it before,ignore this.
 
 Configure the extractor using nexutil and the generated parameters (adapt the argument of -v with your generated based64 parameters)
 ```bash
@@ -194,18 +196,6 @@ Outputs:
 - Plot: predicted vs ground truth HR curve  
 
 ---
-
-## 🔄 Data Flow
-
-```mermaid
-flowchart LR
-    A[Raspberry Pi + Nexmon CSI] -->|capture| B[raw.pcap]
-    B -->|convert with nexmon_2npy.py| C[CleanData/*.npy]
-    C -->|train_script/train_pulsefi.py| D[Trained Model (pulsefi_model.pt)]
-    C -->|predict_pulsefi.py| E[Predicted HR]
-    D -->|evaluate with eval_pulsefi.py| F[Metrics + Plots]
-    E --> G[Clinical/Research Application]
-```
 
 ---
 
