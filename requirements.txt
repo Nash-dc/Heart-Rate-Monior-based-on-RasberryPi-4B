@@ -1,0 +1,6 @@
+numpy>=1.20
+scipy>=1.7
+torch>=1.10
+matplotlib>=3.4
+scapy>=2.4
+nexcsi>=0.1
