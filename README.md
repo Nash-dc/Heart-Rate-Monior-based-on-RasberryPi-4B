@@ -1,6 +1,6 @@
 # Pulse-Fi: Contactless Heart Rate Monitoring with Wi-Fi CSI
 
-This project reproduces **Pulse-Fi** (*published on August 12, 2025*),  
+This project reproduces **[Pulse-Fi](https://ieeexplore.ieee.org/abstract/document/11096342)** (*published on August 12, 2025*),  
 a low-cost system for accurate, non-intrusive heart rate monitoring using  
 Wi-Fi Channel State Information (CSI).
 
