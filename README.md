@@ -150,8 +150,8 @@ pip install -r requirements.txt
 
 ---
 
-## 🏃 Usage
-
+## 🏃 Test Case Usage
+First, you have to copy the collected CSI file from your RasyberryPi to your local Environment in Example/
 ### 1. Convert raw CSI (Nexmon → npy)
 On your PC, convert captured `.pcap` to `.npy` format:
 ```bash

@@ -2,7 +2,7 @@
 import numpy as np
 from nexcsi import decoder
 
-pcap_file = "YourPcap.pcap"
+pcap_file = "YourCSI.pcap"
 
 print("[DEBUG] Starting parse:", pcap_file)
 
