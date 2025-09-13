@@ -201,7 +201,7 @@ Outputs:
 
 ## 📊 Results
 
-- With 20–30s sliding windows, the model achieves **MAE ≈ 0.2–0.4 BPM**.  
+- With 20 sliding windows, the model achieves **MAE ≈ 0.2–0.4 BPM**.  
 - Both software and hardware setups were replicated, confirming feasibility on commodity Wi-Fi devices.  
 
 ![Evaluation](Evaluate.png)
