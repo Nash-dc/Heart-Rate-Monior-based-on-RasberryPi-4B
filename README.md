@@ -56,8 +56,8 @@ To reproduce Pulse-Fi end-to-end (including raw CSI collection), you will need:
 - **Pulse oximeter / smartwatch** (ground-truth HR reference)  
 
 #### 1. Flash Raspberry Pi OS (Nexmon compatible)
-- Download **Raspberry Pi OS 32 bit (32-bit, 2021-05-07 release)**  
-  → matches the kernel required by **Nexmon CSI**.  
+- Download **Raspberry Pi OS 32 bit (32-bit, 2021-05-28 release)**  
+  → matches the kernel required by **[nexmon_csi](https://github.com/seemoo-lab/nexmon_csi?tab=readme-ov-file#getting-started)**. 
 - Flash the image to microSD.
 - Enable SSH for remote access(optional).
 
@@ -210,5 +210,6 @@ Outputs:
 
 ## 📚 Reference
 
-- **Pulse-Fi: A Low-Cost System for Accurate Heart Rate Monitoring Using Wi-Fi Channel State Information**,  
-  published on August 12, 2025.
+https://github.com/seemoo-lab/nexmon_csi?tab=readme-ov-file#getting-started
+https://ieeexplore.ieee.org/abstract/document/11096342
+https://ieeexplore.ieee.org/document/10177905
